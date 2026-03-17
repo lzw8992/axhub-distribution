@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周边需求配货系统 - 业务用例图</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        .diagram-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 12px;
+            background: #f8f9fa;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .legend-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .legend-color {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .legend-text h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .legend-text p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .usecase-detail {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .usecase-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid;
+        }
+        .usecase-card.requester { border-color: #4fc3f7; }
+        .usecase-card.supporter { border-color: #ba68c8; }
+        .usecase-card.approver { border-color: #81c784; }
+        .usecase-card.admin { border-color: #ffb74d; }
+        .usecase-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .usecase-card ul {
+            list-style: none;
+        }
+        .usecase-card li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px dashed #ddd;
+        }
+        .usecase-card li:last-child {
+            border-bottom: none;
+        }
+        .mermaid {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏢 周边需求配货系统</h1>
+        <p class="subtitle">业务用例图 - Use Case Diagram</p>
+        
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TB
+    subgraph 系统边界["📦 周边需求配货系统"]
+        direction TB
+        
+        subgraph UC_CORE["核心用例"]
+            U1[("📋 提交需求单")]
+            U2[("📦 配货处理")]
+            U5[("✅ 审批需求")]
+        end
+        
+        subgraph UC_SUPPORT["辅助用例"]
+            U3[("🔄 转交任务")]
+            U4[("❌ 关闭需求")]
+            U6[("⚙️ 矩阵配置管理")]
+        end
+        
+        subgraph UC_ALLOCATION["配货方式"]
+            P1["🚚 调拨"]
+            P2["⏰ 延迟调拨"]
+            P3["🛒 采购"]
+        end
+    end
+    
+    A["👤<br/>需求提单人"] --> U1
+    B["👷<br/>周边综合支持"] --> U2
+    B --> U3
+    B --> U4
+    C["✅<br/>审批人"] --> U5
+    D["🔧<br/>管理员"] --> U3
+    D --> U6
+    
+    U2 -.->|包含| P1
+    U2 -.->|包含| P2
+    U2 -.->|包含| P3
+    
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#000
+    style B fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px,color:#000
+    style C fill:#e8f5e9,stroke:#388e3c,stroke-width:3px,color:#000
+    style D fill:#fff3e0,stroke:#f57c00,stroke-width:3px,color:#000
+    
+    style U1 fill:#bbdefb,stroke:#1976d2,stroke-width:2px,color:#000
+    style U2 fill:#e1bee7,stroke:#7b1fa2,stroke-width:2px,color:#000
+    style U3 fill:#ffccbc,stroke:#e64a19,stroke-width:2px,color:#000
+    style U4 fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px,color:#000
+    style U5 fill:#c8e6c9,stroke:#388e3c,stroke-width:2px,color:#000
+    style U6 fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#000
+    
+    style P1 fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
+    style P2 fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
+    style P3 fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
+    
+    style 系统边界 fill:#fafafa,stroke:#666,stroke-width:2px,stroke-dasharray: 5 5
+    style UC_CORE fill:#f5f5f5,stroke:#999,stroke-width:1px
+    style UC_SUPPORT fill:#f5f5f5,stroke:#999,stroke-width:1px
+    style UC_ALLOCATION fill:#f5f5f5,stroke:#999,stroke-width:1px
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">👤</div>
+                    <div class="legend-text">
+                        <h4>需求提单人</h4>
+                        <p>提交周边需求单，发起业务流程</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">👷</div>
+                    <div class="legend-text">
+                        <h4>周边综合支持</h4>
+                        <p>处理配货、转交任务、关闭需求</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">✅</div>
+                    <div class="legend-text">
+                        <h4>审批人</h4>
+                        <p>审批需求明细，决定流程走向</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">🔧</div>
+                    <div class="legend-text">
+                        <h4>管理员</h4>
+                        <p>转交任务、配置分配矩阵</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="usecase-detail">
+                <div class="usecase-card requester">
+                    <h3>👤 需求提单人</h3>
+                    <ul>
+                        <li>📋 提交需求单 - 创建周边需求，填写明细</li>
+                    </ul>
+                </div>
+                <div class="usecase-card supporter">
+                    <h3>👷 周边综合支持</h3>
+                    <ul>
+                        <li>📦 配货处理 - 调拨/延迟调拨/采购</li>
+                        <li>🔄 转交任务 - 转交给其他人员</li>
+                        <li>❌ 关闭需求 - 关闭无法完成的需求</li>
+                    </ul>
+                </div>
+                <div class="usecase-card approver">
+                    <h3>✅ 审批人</h3>
+                    <ul>
+                        <li>✅ 审批需求 - 通过或驳回需求明细</li>
+                    </ul>
+                </div>
+                <div class="usecase-card admin">
+                    <h3>🔧 管理员</h3>
+                    <ul>
+                        <li>🔄 转交任务 - 批量转交待配货数据</li>
+                        <li>⚙️ 矩阵配置 - IP与人员分配配置</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周边需求配货系统 - 业务流程泳道图</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        .diagram-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+        .mermaid {
+            text-align: center;
+            min-width: 1200px;
+        }
+        .flow-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .flow-card {
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .flow-card:hover {
+            transform: translateY(-5px);
+        }
+        .flow-card.requester {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .flow-card.system {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        .flow-card.supporter {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+        }
+        .flow-card.approver {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+        }
+        .flow-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .flow-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .detail-section {
+            margin-top: 30px;
+        }
+        .detail-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #11998e;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .process-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid #11998e;
+        }
+        .process-item h4 {
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .process-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .process-item li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .process-item li:last-child {
+            border-bottom: none;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        .badge-blue { background: #e3f2fd; color: #1976d2; }
+        .badge-purple { background: #f3e5f5; color: #7b1fa2; }
+        .badge-green { background: #e8f5e9; color: #388e3c; }
+        .badge-orange { background: #fff3e0; color: #f57c00; }
+        .badge-red { background: #ffebee; color: #c62828; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌊 周边需求配货系统</h1>
+        <p class="subtitle">业务流程泳道图 - Swimlane Flowchart</p>
+        
+        <div class="diagram-container">
+            <div class="mermaid">
+flowchart TB
+    subgraph Lane1["👤 需求提单人"]
+        direction TB
+        A1["📝 提交需求单"] --> A2["📋 填写需求明细<br/>IP / 单品 / 数量"] --> A3["📤 提交审批"]
+    end
+
+    subgraph Lane2["⚙️ 系统自动处理"]
+        direction TB
+        S1["🤖 根据IP自动分配<br/>周边综合支持"] --> S2["📊 需求明细状态<br/>更新为: 待配货"]
+    end
+
+    subgraph Lane3["👷 周边综合支持"]
+        direction TB
+        B1["📥 接收待配货任务"] --> B2{"🎯 选择配货方式"}
+        
+        B2 -->|公司有库存| C1["🚚 调拨"]
+        B2 -->|采购中| C2["⏰ 延迟调拨"]
+        B2 -->|无库存| C3["🛒 采购"]
+        
+        C1 --> C1a["📄 自动发起调拨单"]
+        C2 --> C2a["🔄 状态更新为: 延迟调拨"]
+        C3 --> C3a["📌 生成采购TODO"]
+        
+        C1a --> B3["⏳ 等待审批结果"]
+        C2a --> B3
+        C3a --> B3
+        
+        B3 -->|审批通过| B4a["✅ 调拨单生效<br/>进入出入库流程"]
+        B3 -->|审批驳回| B4b["❌ 作废调拨单<br/>配货退回"]
+        
+        B5["🔄 转交任务"] --> B5a["👥 转交给其他<br/>同岗位人员"]
+        B6["🚫 关闭需求"] --> B6a["🔒 配货关闭"]
+    end
+
+    subgraph Lane4["✅ 审批人"]
+        direction TB
+        D1["📋 审批需求明细"] --> D2{"⚖️ 审批决策"}
+        D2 -->|通过| D3["✅ 审批通过"]
+        D2 -->|驳回| D4["❌ 审批驳回"]
+    end
+
+    subgraph Lane5["⏰ 延迟调拨后续"]
+        direction TB
+        E1["📦 采购完成<br/>有多余库存"] --> E2["👆 选择延迟调拨明细"] --> E3["🔄 重新配货"] --> E4["📝 可改为: 调拨/采购"]
+    end
+
+    subgraph Lane6["🛒 采购后续"]
+        direction TB
+        F1["📝 下采购申请单"] --> F2["🔗 关联配货明细"] --> F3["📋 下采购订单"] --> F4["📦 仓库验收入库"] --> F5["🚚 自动调拨至<br/>用户有权限仓库"]
+    end
+
+    A3 -.-> S1
+    S2 -.-> B1
+    D3 -.-> B3
+    D4 -.-> B4b
+    C2a -.->|后续处理| E1
+    C3a -.->|后续处理| F1
+
+    style Lane1 fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style Lane2 fill:#fce4ec,stroke:#c2185b,stroke-width:3px
+    style Lane3 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style Lane4 fill:#e8f5e9,stroke:#388e3c,stroke-width:3px
+    style Lane5 fill:#fff8e1,stroke:#f9a825,stroke-width:3px
+    style Lane6 fill:#e0f2f1,stroke:#00695c,stroke-width:3px
+
+    style A1 fill:#bbdefb,stroke:#1976d2,stroke-width:2px,color:#000
+    style A2 fill:#bbdefb,stroke:#1976d2,stroke-width:2px,color:#000
+    style A3 fill:#bbdefb,stroke:#1976d2,stroke-width:2px,color:#000
+    
+    style S1 fill:#f8bbd9,stroke:#c2185b,stroke-width:2px,color:#000
+    style S2 fill:#f8bbd9,stroke:#c2185b,stroke-width:2px,color:#000
+    
+    style B1 fill:#e1bee7,stroke:#7b1fa2,stroke-width:2px,color:#000
+    style B2 fill:#ffcc80,stroke:#ef6c00,stroke-width:2px,color:#000
+    style B3 fill:#e1bee7,stroke:#7b1fa2,stroke-width:2px,color:#000
+    style B4a fill:#a5d6a7,stroke:#388e3c,stroke-width:2px,color:#000
+    style B4b fill:#ef9a9a,stroke:#c62828,stroke-width:2px,color:#000
+    style B5 fill:#ffccbc,stroke:#e64a19,stroke-width:2px,color:#000
+    style B6 fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px,color:#000
+    
+    style C1 fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
+    style C2 fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
+    style C3 fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
+    style C1a fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
+    style C2a fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
+    style C3a fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000
+    
+    style D1 fill:#c8e6c9,stroke:#388e3c,stroke-width:2px,color:#000
+    style D2 fill:#ffcc80,stroke:#ef6c00,stroke-width:2px,color:#000
+    style D3 fill:#a5d6a7,stroke:#388e3c,stroke-width:2px,color:#000
+    style D4 fill:#ef9a9a,stroke:#c62828,stroke-width:2px,color:#000
+    
+    style E1 fill:#fff59d,stroke:#f9a825,stroke-width:2px,color:#000
+    style E2 fill:#fff59d,stroke:#f9a825,stroke-width:2px,color:#000
+    style E3 fill:#fff59d,stroke:#f9a825,stroke-width:2px,color:#000
+    style E4 fill:#fff59d,stroke:#f9a825,stroke-width:2px,color:#000
+    
+    style F1 fill:#b2dfdb,stroke:#00695c,stroke-width:2px,color:#000
+    style F2 fill:#b2dfdb,stroke:#00695c,stroke-width:2px,color:#000
+    style F3 fill:#b2dfdb,stroke:#00695c,stroke-width:2px,color:#000
+    style F4 fill:#b2dfdb,stroke:#00695c,stroke-width:2px,color:#000
+    style F5 fill:#b2dfdb,stroke:#00695c,stroke-width:2px,color:#000
+            </div>
+            
+            <div class="flow-legend">
+                <div class="flow-card requester">
+                    <h4>👤 需求提单人</h4>
+                    <p>提交需求单并发起审批</p>
+                </div>
+                <div class="flow-card system">
+                    <h4>⚙️ 系统自动处理</h4>
+                    <p>自动分配处理人</p>
+                </div>
+                <div class="flow-card supporter">
+                    <h4>👷 周边综合支持</h4>
+                    <p>配货处理核心流程</p>
+                </div>
+                <div class="flow-card approver">
+                    <h4>✅ 审批人</h4>
+                    <p>审批决策与流程控制</p>
+                </div>
+            </div>
+            
+            <div class="detail-section">
+                <h3>📋 业务流程详细说明</h3>
+                <div class="process-grid">
+                    <div class="process-item">
+                        <h4>📝 阶段一：需求提交 <span class="badge badge-blue">需求提单人</span></h4>
+                        <ul>
+                            <li>1️⃣ 提交需求单</li>
+                            <li>2️⃣ 填写需求明细（IP、单品、数量）</li>
+                            <li>3️⃣ 提交审批 → 系统自动分配</li>
+                        </ul>
+                    </div>
+                    <div class="process-item">
+                        <h4>🎯 阶段二：配货处理 <span class="badge badge-purple">周边综合支持</span></h4>
+                        <ul>
+                            <li>🚚 调拨：公司有库存时选择</li>
+                            <li>⏰ 延迟调拨：单品采购中时选择</li>
+                            <li>🛒 采购：无库存无在途时选择</li>
+                        </ul>
+                    </div>
+                    <div class="process-item">
+                        <h4>⚖️ 阶段三：审批决策 <span class="badge badge-green">审批人</span></h4>
+                        <ul>
+                            <li>✅ 通过：调拨单生效，进入出入库</li>
+                            <li>❌ 驳回：作废调拨单/配货退回</li>
+                        </ul>
+                    </div>
+                    <div class="process-item">
+                        <h4>⏰ 阶段四：延迟调拨后续 <span class="badge badge-orange">后续处理</span></h4>
+                        <ul>
+                            <li>📦 采购完成且有多余库存</li>
+                            <li>🔄 可重新配货为调拨或采购</li>
+                        </ul>
+                    </div>
+                    <div class="process-item">
+                        <h4>🛒 阶段五：采购后续 <span class="badge badge-orange">后续处理</span></h4>
+                        <ul>
+                            <li>📝 下采购申请单并关联明细</li>
+                            <li>📋 下采购订单 → 验收入库</li>
+                            <li>🚚 自动调拨至用户仓库</li>
+                        </ul>
+                    </div>
+                    <div class="process-item">
+                        <h4>🔄 辅助流程 <span class="badge badge-red">特殊处理</span></h4>
+                        <ul>
+                            <li>🔄 转交：待配货/延迟调拨/采购中可转交</li>
+                            <li>🚫 关闭：上述状态均可关闭需求</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

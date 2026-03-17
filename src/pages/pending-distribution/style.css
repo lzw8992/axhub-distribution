@@ -1,0 +1,78 @@
+/* 待我配货页面样式 */
+
+/* 页面整体布局 */
+.pending-distribution-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+/* 筛选模块样式 */
+.filter-card {
+  margin-bottom: 16px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.filter-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 表格样式优化 */
+.ant-table-cell {
+  white-space: nowrap;
+}
+
+.ant-table-cell-ellipsis {
+  max-width: 300px;
+}
+
+/* 固定列样式 */
+.ant-table-cell-fix-left,
+.ant-table-cell-fix-right {
+  background: #fff;
+}
+
+/* 配货抽屉样式 */
+.distribute-drawer .ant-drawer-body {
+  padding: 16px;
+}
+
+/* 商品信息卡片 */
+.product-info-card {
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  margin-bottom: 16px;
+}
+
+/* 配货方式选择 */
+.distribute-method-selector {
+  margin-bottom: 16px;
+}
+
+/* 批量导入上传组件样式 */
+.batch-import-upload .ant-upload-list-item-name {
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .filter-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ant-table {
+    font-size: 12px;
+  }
+}

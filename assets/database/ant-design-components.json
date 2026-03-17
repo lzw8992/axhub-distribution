@@ -1,0 +1,131 @@
+{
+  "tableName": "Ant Design 组件表",
+  "description": "Ant Design 5.x 版本的所有 React 组件列表",
+  "source": "https://ant-design.antgroup.com/components/overview-cn/",
+  "extractedAt": "2026-02-27",
+  "totalCount": 66,
+  "categories": [
+    {
+      "id": "general",
+      "name": "通用组件",
+      "nameEn": "General",
+      "count": 3,
+      "components": [
+        { "id": 1, "name": "按钮", "nameEn": "Button", "description": "用于触发操作，支持多种类型和状态", "url": "https://ant-design.antgroup.com/components/button-cn" },
+        { "id": 2, "name": "图标", "nameEn": "Icon", "description": "使用 @ant-design/icons 提供丰富的图标集合", "url": "https://ant-design.antgroup.com/components/icon-cn" },
+        { "id": 3, "name": "排版", "nameEn": "Typography", "description": "文本和标题的基本格式控制", "url": "https://ant-design.antgroup.com/components/typography-cn" }
+      ]
+    },
+    {
+      "id": "layout",
+      "name": "布局组件",
+      "nameEn": "Layout",
+      "count": 4,
+      "components": [
+        { "id": 4, "name": "分割线", "nameEn": "Divider", "description": "区隔内容的分割线", "url": "https://ant-design.antgroup.com/components/divider-cn" },
+        { "id": 5, "name": "栅格", "nameEn": "Grid", "description": "24 栅格系统，用于页面布局", "url": "https://ant-design.antgroup.com/components/grid-cn" },
+        { "id": 6, "name": "布局", "nameEn": "Layout", "description": "页面整体布局结构（Header/Sider/Content/Footer）", "url": "https://ant-design.antgroup.com/components/layout-cn" },
+        { "id": 7, "name": "间距", "nameEn": "Space", "description": "设置组件之间的间距", "url": "https://ant-design.antgroup.com/components/space-cn" }
+      ]
+    },
+    {
+      "id": "navigation",
+      "name": "导航组件",
+      "nameEn": "Navigation",
+      "count": 6,
+      "components": [
+        { "id": 8, "name": "锚点", "nameEn": "Anchor", "description": "页面内跳转导航", "url": "https://ant-design.antgroup.com/components/anchor-cn" },
+        { "id": 9, "name": "面包屑", "nameEn": "Breadcrumb", "description": "显示当前页面路径", "url": "https://ant-design.antgroup.com/components/breadcrumb-cn" },
+        { "id": 10, "name": "下拉菜单", "nameEn": "Dropdown", "description": "向下弹出的菜单列表", "url": "https://ant-design.antgroup.com/components/dropdown-cn" },
+        { "id": 11, "name": "菜单", "nameEn": "Menu", "description": "导航菜单", "url": "https://ant-design.antgroup.com/components/menu-cn" },
+        { "id": 12, "name": "分页", "nameEn": "Pagination", "description": "数据分页展示", "url": "https://ant-design.antgroup.com/components/pagination-cn" },
+        { "id": 13, "name": "步骤条", "nameEn": "Steps", "description": "引导用户完成任务的步骤导航", "url": "https://ant-design.antgroup.com/components/steps-cn" }
+      ]
+    },
+    {
+      "id": "data-entry",
+      "name": "数据录入组件",
+      "nameEn": "Data Entry",
+      "count": 18,
+      "components": [
+        { "id": 14, "name": "自动完成", "nameEn": "AutoComplete", "description": "输入框自动完成功能", "url": "https://ant-design.antgroup.com/components/auto-complete-cn" },
+        { "id": 15, "name": "级联选择", "nameEn": "Cascader", "description": "级联选择框", "url": "https://ant-design.antgroup.com/components/cascader-cn" },
+        { "id": 16, "name": "多选框", "nameEn": "Checkbox", "description": "多选框", "url": "https://ant-design.antgroup.com/components/checkbox-cn" },
+        { "id": 17, "name": "颜色选择器", "nameEn": "ColorPicker", "description": "颜色选择器", "url": "https://ant-design.antgroup.com/components/color-picker-cn" },
+        { "id": 18, "name": "日期选择框", "nameEn": "DatePicker", "description": "日期和时间选择", "url": "https://ant-design.antgroup.com/components/date-picker-cn" },
+        { "id": 19, "name": "表单", "nameEn": "Form", "description": "高性能表单控件，自带数据域管理", "url": "https://ant-design.antgroup.com/components/form-cn" },
+        { "id": 20, "name": "输入框", "nameEn": "Input", "description": "基础输入框", "url": "https://ant-design.antgroup.com/components/input-cn" },
+        { "id": 21, "name": "数字输入框", "nameEn": "InputNumber", "description": "数字输入框", "url": "https://ant-design.antgroup.com/components/input-number-cn" },
+        { "id": 22, "name": "提及", "nameEn": "Mentions", "description": "提及功能，常用于评论或 @某人", "url": "https://ant-design.antgroup.com/components/mentions-cn" },
+        { "id": 23, "name": "单选框", "nameEn": "Radio", "description": "单选框", "url": "https://ant-design.antgroup.com/components/radio-cn" },
+        { "id": 24, "name": "评分", "nameEn": "Rate", "description": "评分组件", "url": "https://ant-design.antgroup.com/components/rate-cn" },
+        { "id": 25, "name": "选择器", "nameEn": "Select", "description": "下拉选择器", "url": "https://ant-design.antgroup.com/components/select-cn" },
+        { "id": 26, "name": "滑动输入条", "nameEn": "Slider", "description": "滑动型输入器", "url": "https://ant-design.antgroup.com/components/slider-cn" },
+        { "id": 27, "name": "开关", "nameEn": "Switch", "description": "开关选择器", "url": "https://ant-design.antgroup.com/components/switch-cn" },
+        { "id": 28, "name": "时间选择框", "nameEn": "TimePicker", "description": "时间选择器", "url": "https://ant-design.antgroup.com/components/time-picker-cn" },
+        { "id": 29, "name": "穿梭框", "nameEn": "Transfer", "description": "双栏穿梭选择框", "url": "https://ant-design.antgroup.com/components/transfer-cn" },
+        { "id": 30, "name": "树选择", "nameEn": "TreeSelect", "description": "树型选择控件", "url": "https://ant-design.antgroup.com/components/tree-select-cn" },
+        { "id": 31, "name": "上传", "nameEn": "Upload", "description": "文件上传", "url": "https://ant-design.antgroup.com/components/upload-cn" }
+      ]
+    },
+    {
+      "id": "data-display",
+      "name": "数据展示组件",
+      "nameEn": "Data Display",
+      "count": 20,
+      "components": [
+        { "id": 32, "name": "头像", "nameEn": "Avatar", "description": "用户头像展示", "url": "https://ant-design.antgroup.com/components/avatar-cn" },
+        { "id": 33, "name": "徽标数", "nameEn": "Badge", "description": "图标右上角的徽标数字", "url": "https://ant-design.antgroup.com/components/badge-cn" },
+        { "id": 34, "name": "日历", "nameEn": "Calendar", "description": "按照日历形式展示数据", "url": "https://ant-design.antgroup.com/components/calendar-cn" },
+        { "id": 35, "name": "卡片", "nameEn": "Card", "description": "通用卡片容器", "url": "https://ant-design.antgroup.com/components/card-cn" },
+        { "id": 36, "name": "走马灯", "nameEn": "Carousel", "description": "轮播图", "url": "https://ant-design.antgroup.com/components/carousel-cn" },
+        { "id": 37, "name": "折叠面板", "nameEn": "Collapse", "description": "折叠面板", "url": "https://ant-design.antgroup.com/components/collapse-cn" },
+        { "id": 38, "name": "描述列表", "nameEn": "Descriptions", "description": "成组展示多个只读字段", "url": "https://ant-design.antgroup.com/components/descriptions-cn" },
+        { "id": 39, "name": "空状态", "nameEn": "Empty", "description": "空状态展示", "url": "https://ant-design.antgroup.com/components/empty-cn" },
+        { "id": 40, "name": "图片", "nameEn": "Image", "description": "图片展示和预览", "url": "https://ant-design.antgroup.com/components/image-cn" },
+        { "id": 41, "name": "列表", "nameEn": "List", "description": "通用列表", "url": "https://ant-design.antgroup.com/components/list-cn" },
+        { "id": 42, "name": "气泡卡片", "nameEn": "Popover", "description": "气泡式的卡片浮层", "url": "https://ant-design.antgroup.com/components/popover-cn" },
+        { "id": 43, "name": "二维码", "nameEn": "QRCode", "description": "二维码生成", "url": "https://ant-design.antgroup.com/components/qrcode-cn" },
+        { "id": 44, "name": "分段控制器", "nameEn": "Segmented", "description": "分段控制器", "url": "https://ant-design.antgroup.com/components/segmented-cn" },
+        { "id": 45, "name": "统计数值", "nameEn": "Statistic", "description": "统计数值展示", "url": "https://ant-design.antgroup.com/components/statistic-cn" },
+        { "id": 46, "name": "表格", "nameEn": "Table", "description": "数据表格", "url": "https://ant-design.antgroup.com/components/table-cn" },
+        { "id": 47, "name": "标签页", "nameEn": "Tabs", "description": "标签页切换", "url": "https://ant-design.antgroup.com/components/tabs-cn" },
+        { "id": 48, "name": "标签", "nameEn": "Tag", "description": "标签组件", "url": "https://ant-design.antgroup.com/components/tag-cn" },
+        { "id": 49, "name": "时间轴", "nameEn": "Timeline", "description": "时间轴", "url": "https://ant-design.antgroup.com/components/timeline-cn" },
+        { "id": 50, "name": "文字提示", "nameEn": "Tooltip", "description": "简单的文字提示气泡框", "url": "https://ant-design.antgroup.com/components/tooltip-cn" },
+        { "id": 51, "name": "树形控件", "nameEn": "Tree", "description": "树形结构展示", "url": "https://ant-design.antgroup.com/components/tree-cn" }
+      ]
+    },
+    {
+      "id": "feedback",
+      "name": "反馈组件",
+      "nameEn": "Feedback",
+      "count": 9,
+      "components": [
+        { "id": 52, "name": "警告提示", "nameEn": "Alert", "description": "警告提示，展现需要关注的信息", "url": "https://ant-design.antgroup.com/components/alert-cn" },
+        { "id": 53, "name": "抽屉", "nameEn": "Drawer", "description": "抽屉式侧边栏", "url": "https://ant-design.antgroup.com/components/drawer-cn" },
+        { "id": 54, "name": "全局提示", "nameEn": "message", "description": "全局展示操作反馈信息", "url": "https://ant-design.antgroup.com/components/message-cn" },
+        { "id": 55, "name": "对话框", "nameEn": "Modal", "description": "模态对话框", "url": "https://ant-design.antgroup.com/components/modal-cn" },
+        { "id": 56, "name": "通知提醒框", "nameEn": "notification", "description": "通知提醒框", "url": "https://ant-design.antgroup.com/components/notification-cn" },
+        { "id": 57, "name": "进度条", "nameEn": "Progress", "description": "进度条", "url": "https://ant-design.antgroup.com/components/progress-cn" },
+        { "id": 58, "name": "结果", "nameEn": "Result", "description": "结果页，用于反馈操作结果", "url": "https://ant-design.antgroup.com/components/result-cn" },
+        { "id": 59, "name": "加载中", "nameEn": "Spin", "description": "加载中状态", "url": "https://ant-design.antgroup.com/components/spin-cn" },
+        { "id": 60, "name": "骨架屏", "nameEn": "Skeleton", "description": "骨架屏，在数据加载时展示", "url": "https://ant-design.antgroup.com/components/skeleton-cn" }
+      ]
+    },
+    {
+      "id": "other",
+      "name": "其他组件",
+      "nameEn": "Other",
+      "count": 6,
+      "components": [
+        { "id": 61, "name": "回到顶部", "nameEn": "BackTop", "description": "返回页面顶部的按钮", "url": "https://ant-design.antgroup.com/components/back-top-cn" },
+        { "id": 62, "name": "全局化配置", "nameEn": "ConfigProvider", "description": "全局配置组件", "url": "https://ant-design.antgroup.com/components/config-provider-cn" },
+        { "id": 63, "name": "水印", "nameEn": "Watermark", "description": "页面水印", "url": "https://ant-design.antgroup.com/components/watermark-cn" },
+        { "id": 64, "name": "浮动按钮", "nameEn": "FloatButton", "description": "浮动按钮", "url": "https://ant-design.antgroup.com/components/float-button-cn" },
+        { "id": 65, "name": "漫游式引导", "nameEn": "Tour", "description": "用于引导用户了解产品功能", "url": "https://ant-design.antgroup.com/components/tour-cn" },
+        { "id": 66, "name": "气泡确认框", "nameEn": "Popconfirm", "description": "点击元素，弹出气泡式的确认框", "url": "https://ant-design.antgroup.com/components/popconfirm-cn" }
+      ]
+    }
+  ]
+}
