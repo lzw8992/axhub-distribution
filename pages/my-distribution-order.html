@@ -70,14 +70,28 @@
   <div id="root"></div>
 
   <!-- 加载 bootstrap JS（会自动挂载到 window.HtmlTemplateBootstrap） -->
-  <script type="module" src="/axhub-distribution/assets/html-template-bootstrap.js"></script>
+  <script src="/axhub-distribution/assets/html-template-bootstrap.js"></script>
 
   <!-- 加载组件 JS（IIFE 格式，会挂载 UserComponent 到 window） -->
-  <script src="/axhub-distribution/pages/my-distribution-order.js"></script>
+  <script>
+    // 等待 bootstrap 加载完成后再加载组件 JS
+    function loadComponentScript() {
+      if (window.HtmlTemplateBootstrap && window.HtmlTemplateBootstrap.React) {
+        // React 已加载，创建 script 标签加载组件
+        const script = document.createElement('script');
+        script.src = '/axhub-distribution/pages/my-distribution-order.js';
+        script.onload = function() {
+          // 组件加载完成后渲染
+          renderApp();
+        };
+        document.head.appendChild(script);
+      } else {
+        setTimeout(loadComponentScript, 50);
+      }
+    }
 
-  <script type="module">
-    // 等待 bootstrap 和组件加载完成
-    function waitForReady() {
+    // 渲染应用
+    function renderApp() {
       if (window.HtmlTemplateBootstrap && window.UserComponent) {
         const { renderComponent, React, ReactDOM } = window.HtmlTemplateBootstrap;
 
@@ -91,11 +105,12 @@
         // 渲染组件
         renderComponent(Component);
       } else {
-        setTimeout(waitForReady, 10);
+        setTimeout(renderApp, 50);
       }
     }
 
-    waitForReady();
+    // 开始加载流程
+    loadComponentScript();
   </script>
 
 </body>
